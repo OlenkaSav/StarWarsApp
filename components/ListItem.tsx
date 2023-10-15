@@ -29,28 +29,27 @@ const ListItem: React.FC<ListItemProps> = props => {
   };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={onFavoriteClick}
-        style={styles.icFavContainer}>
-        {!isFavorite && <Icon name="heart" size={28} color="#2e0e18" />}
-        {isFavorite && <Icon name="trash-alt" size={28} color="#15064e" />}
-      </TouchableOpacity>
-
+    <TouchableOpacity style={styles.container} onPress={onDetailsClick}>
       <View style={styles.content}>
         <View>
           <Text style={styles.name}>{item.name}</Text>
           <Text style={styles.text}>{item.gender}</Text>
         </View>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           activeOpacity={0.7}
           onPress={onDetailsClick}
           style={styles.details}>
           <Text style={styles.detailsText}>Details</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
-    </View>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={onFavoriteClick}
+        style={styles.icFavContainer}>
+        {!isFavorite && <Icon name="heart" size={28} color="#2a304b" />}
+        {isFavorite && <Icon name="trash-alt" size={28} color="#2a304b" />}
+      </TouchableOpacity>
+    </TouchableOpacity>
   );
 };
 
@@ -69,6 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    margin: 10,
   },
   name: {
     textAlign: 'left',

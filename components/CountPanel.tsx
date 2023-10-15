@@ -30,7 +30,7 @@ const CountPanel: React.FC<CountPanelProps> = props => {
       <TouchableOpacity
         style={[styles.cell, styles.customButton]}
         onPress={onReset}>
-        <Text style={styles.text}>Reset</Text>
+        <Text style={[styles.text, {color: 'rgb(206, 208, 207)'}]}>Reset</Text>
       </TouchableOpacity>
     </View>
   );
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     display: 'flex',
+    color: 'rgb(206, 208, 207)',
   },
   text: {
     textAlign: 'center',
