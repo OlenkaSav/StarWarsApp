@@ -19,6 +19,7 @@ const HomeScreen = () => {
   const [other, setOther] = React.useState<number>(0);
   const [persons, setPersons] = React.useState(null);
   const [page, setPage] = React.useState(1);
+  const [total, setTotal] = React.useState(1);
   const [reset, setReset] = React.useState(false);
 
   React.useEffect(() => {
@@ -27,9 +28,10 @@ const HomeScreen = () => {
         const response = await axios.get(
           `https://swapi.dev/api/people/?page=${page}`,
         );
-        const {data} = response;
-        const {results} = data;
+        const { data } = response;
+        const {results, count} = data;
         setPersons(results);
+        setTotal(count);
       } catch (error) {
         console.error('Something went wrong', error);
       }
@@ -75,7 +77,7 @@ const HomeScreen = () => {
               />
             ))}
         </View>
-        <Pagination page={page} onUpdatePage={setPage} />
+        <Pagination page={page} onUpdatePage={setPage} total={total} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -83,6 +85,7 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   backgroundStyle: {
+    flex: 1,
     backgroundColor: '#2a304b',
     padding: 10,
   },

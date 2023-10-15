@@ -16,7 +16,8 @@ const DetailsScreen = ({route}) => {
           const {data} = response;
           setPlanet(data.name);
         } catch (error) {
-          console.error('Something went wrong', error);
+          setPlanet('No info');
+          // console.error('Something went wrong', error);
         }
       };
       fetchData();
@@ -31,7 +32,8 @@ const DetailsScreen = ({route}) => {
           const {data} = response;
           setSpecies(data.name);
         } catch (error) {
-          console.error('Something went wrong', error);
+          setSpecies('No info');
+          // console.error('Something went wrong', error);
         }
       };
       fetchData();
@@ -68,6 +70,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
+    backgroundColor: '#2a304b',
   },
   section: {
     flexDirection: 'row',

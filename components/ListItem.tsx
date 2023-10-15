@@ -25,7 +25,6 @@ const ListItem: React.FC<ListItemProps> = props => {
     count(item.gender, isFavorite ? -1 : 1);
   };
   const onDetailsClick = () => {
-    console.log('details');
     navigation.navigate('DetailsScreen', {item});
   };
 
